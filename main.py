@@ -7,15 +7,21 @@ agent = AgenteV1(8)
 
 observation, info = env.reset()
 
-for _ in range(1000):
+aprendendo = True
+acoes = []
+acoes_temp = []
+
+while aprendendo:
     action = agent.get_action(observation)
+    acoes_temp.append(action)
     observation, reward, terminated, truncated, info = env.step(action)
 
-    if terminated:
-        #informa o agente que terminou e em qual posição
-        agent.terminated(observation)
-
     if terminated or truncated:
+        #informa o agente que terminou e em qual posição
+        acoes = acoes_temp
+        acoes_temp = []
+        aprendendo = True if agent.terminated(observation) == False else False
         observation, info = env.reset()
 
+print(acoes)
 env.close()

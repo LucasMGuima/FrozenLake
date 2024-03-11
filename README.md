@@ -1,9 +1,10 @@
-#Frozen Lake
-Cosiste em um ambiente onde se deve atravessar um lago congelado até o objetivo, evitando cair em seus buracos.
-###Projeto
+# Frozen Lake
+Consiste em um ambiente onde se deve atravessar um lago congelado até o objetivo, evitando cair em seus buracos.
+### Projeto
 Esse projeto tem como intuito a implementação de uma algoritmo A* (A-estrela), para se encontrar o melhor caminho até o alvo, sendo o alvo um ponto fixo, o ponto $(n²)-1$, onde $n$ é o tamanho de um dos lados de uma grade quadrada.
-Em sua versão completa o amrbiente do *Frozen Lake* possui chance de se mover para o lado errado, porém essa caracteristica não foi usada neste momento.
-###Agente
+Em sua versão completa o ambiente do *Frozen Lake* possui chance de ao se mover ir o lado errado, porém essa caracteristica não foi usada neste momento.
+### Agente
+O agente criado se utiliza da distancia entre dois pontos para avaliar o melhor caminho até o alvo.
 - **Se encontrar**
 O ambiente informa a posição do agente como um inteiro, indo de 0 até $(n²)-1$, onde $n$ é o tamanho do tabuleiro, sendo de 4 ou 8. Para se encontrar a posição atual pegamos o resto da divisão do valor informado pelo tamanho do tabuleiro como o valor na codernada X e o quociente da divisão como o valor em Y:
 ``` Python
@@ -26,4 +27,7 @@ Em codígo a função para se achar o valor heuristico de dada posição é:
         return dist
 ```
 - **Avaliando**
-  Quando a simulção atual termina, avaliamos se o agente chegou até o alvo ou se caiu em um buraco, para isso vemos se a posição final é a posição alvo, se não foi, atibuimos uma penalidade aquela posição, fazendo o agente tender a não escolhela mais.
+  Quando a simulção atual termina, avaliamos se o agente chegou até o alvo ou se caiu em um buraco, para isso vemos se a posição final é a posição alvo, se não for, atibuimos uma penalidade aquela posição, fazendo o agente tender a não escolhe-la novamente.
+
+### Referencias
+- [Biblioteca gymnasium](https://gymnasium.farama.org)

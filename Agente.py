@@ -44,12 +44,14 @@ class AgenteV1:
 
         return valid_move
 
-    def terminated(self, pos):
+    def terminated(self, pos) -> bool:
         #Agente avalia a situação em que foi terminado o episodio, e avalia se o caminho foi um uscesso ou n, se n, penalisa a posição, possivel buraco
         if (pos != (self.map_size**2)-1):
             self.g_positions[pos] = 1000
+            return False
         else: 
             self.g_positions[pos] = 0
+            return True
 
     def heuristic(self, pos) -> int:
         #Distancia entre dois pontos
