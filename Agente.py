@@ -59,7 +59,6 @@ class AgenteV1:
         y_pos:int = math.floor(pos/self.map_size)
 
         dist = ((x_pos - self.x_target)**2) + ((y_pos - self.y_target)**2)
-        #print("({} - {})^2) + ({} - {})^2 = {}".format(x_pos, self.x_target, y_pos, self.y_target, dist))
         return dist
 
     def a_star(self, cur_pos):
@@ -84,6 +83,10 @@ class AgenteV1:
         
         #acha a direção a se mover
         move_dir = moves[best_move - cur_pos]
+
+        #se a direção for para cima ou para esquerda, caracterizando um retorno, penaliza o local, mesmo n sendo buraco
+        if move_dir in [0, 3]:
+            self.g_positions[cur_pos] += 10
 
         #print("BM: {} MD: {}".format(best_move, move_dir))
         return move_dir
