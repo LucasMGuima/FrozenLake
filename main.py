@@ -11,7 +11,7 @@ aprendendo = True
 acoes = []
 acoes_temp = []
 
-while aprendendo:
+while True:
     action = agent.get_action(observation)
     acoes_temp.append(action)
     observation, reward, terminated, truncated, info = env.step(action)
