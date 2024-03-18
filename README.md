@@ -3,9 +3,14 @@ Consiste em um ambiente onde se deve atravessar um lago congelado até o objetiv
 ### Projeto
 Esse projeto tem como intuito a implementação de uma algoritmo A* (A-estrela), para se encontrar o melhor caminho até o alvo, sendo o alvo um ponto fixo, o ponto $(n²-1)$, onde $n$ é o tamanho de um dos lados de uma grade quadrada.
 Em sua versão completa o ambiente do *Frozen Lake* possui a chance de ao se mover ir para o lado errado, porém essa caracteristica não foi usada neste momento.
+
 ![Frozen Lake Ambiente](./img/FL_Ambiente.png)
+
 ### Agente
 O agente criado se utiliza da distancia entre dois pontos para avaliar o melhor caminho até o alvo.
+
+![Frozen Lake Agente](./img/FL_Agente.gif)
+
 - **Se encontrar**
 O ambiente informa a posição do agente como um inteiro, indo de 0 até $(n²)-1$, onde $n$ é o tamanho do tabuleiro, sendo de 4 ou 8. Para se encontrar a posição atual pegamos o resto da divisão do valor informado pelo tamanho do tabuleiro como o valor na codernada X e o quociente da divisão como o valor em Y:
 ``` Python
